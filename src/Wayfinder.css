@@ -1,0 +1,119 @@
+.Wayfinder-container {
+  width: 75%;
+  margin: auto;
+  font-family: 'Roboto Mono', monospace;
+}
+
+.Wayfinder-header {
+  color: #fff;
+  font-family: 'Roboto', sans-serif;
+  padding: 40px 10px 20px 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.Wayfinder-header h1 {
+  letter-spacing: -0.25px;
+  text-transform: uppercase;
+  font-weight: 300;
+  font-size: 18px;
+}
+
+.Wayfinder-header a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.Wayfinder-header .menu-nav {
+  text-transform: uppercase;
+}
+
+.Wayfinder-header li {
+  margin-right: 20px;
+  display: inline-block;
+}
+
+.Wayfinder-header .nav-selected {
+  padding-bottom: 10px;
+  border-bottom: 4px solid #fff;
+}
+
+strong {
+  font-weight: 700;
+}
+
+.Wayfinder-grid {
+  display: grid;
+  color: #fff;
+  padding-top: 150px;
+
+  width: 75%;
+  margin: auto;
+  
+  grid-gap: 22px;
+  column-gap: 22px;
+  grid-row-gap: 22px;
+  grid-template-columns: repeat(7, 120px [col-start]);
+  grid-template-rows: repeat(6, 120px [col-start]);
+}
+
+
+svg {
+  /*border-bottom: 1px solid rgba(255,255,255,0.2);*/
+}
+
+.RoomName {
+  border-top: 1px solid rgba(255,255,255,0.3);
+  /*padding-top: 20px;*/
+  /*background-color: rgba(255,255,255,0.05);*/
+  /*box-shadow: 5px 5px #fff;*/
+/*  padding: 5px;*/
+  padding-top: 10px;
+}
+
+.RoomName h2 {
+  font-size: 14px;
+  font-family: "Roboto", sans-serif;
+  /*letter-spacing: -1px;*/
+}
+
+.RoomName h4 {
+  font-size: 10px;
+  margin-top: 5px;
+}
+
+.RoomOccupancy {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 5px;
+}
+
+.RoomOccupancy div {
+  width: 4px;
+  height: 4px;
+  display: inline-block;
+  margin: 2px;
+  border-radius: 50%;
+  border: 1px solid #fff;
+}
+
+.RoomOccupancy .EntryOccupied {
+  background-color: #fff;
+}
+
+.input-control {
+  width: 972px;
+  margin: auto;
+  margin-top: 50px;
+}
+
+textarea {
+  background-color: #111212;
+  color: #fff;
+  padding: 20px;
+  height: 24px;
+  width: 100%;
+  border: 0px;
+  font-size: 18px;
+  font-family: 'Roboto Mono', monospace;
+}
