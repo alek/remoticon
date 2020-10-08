@@ -86,7 +86,7 @@ class RoomEntry extends React.Component {
       <div key={"cell-" + this.idx} className="RoomName" onMouseEnter={this.onMouseEnter} onMouseLeave={this.onMouseLeave}>
                           <h2 style={{ color: this.fill }}>{this.title}</h2>
                           <h4>{this.participants} participants</h4>
-                          <RoomOccupancy total={20+Math.floor(20*Math.random())} active={this.participants} id={this.idx} color={this.fill}/>
+                          <RoomOccupancy total={30} active={this.participants} id={this.idx} color={this.fill}/>
                           </div>
     )
   }
@@ -145,8 +145,8 @@ class WayfinderGrid extends React.Component {
                     participants={10+Math.floor(10*Math.random())} 
                     logo={cells.slice(-1)[0]} 
                     key={Math.random()}
-                    onMouseEnter={() => { this.setState({animate: this.state.animate.map((val,idx) => {return (Math.floor(i/2)==idx) ? true : val } )})}} 
-                    onMouseLeave={() => { this.setState({animate: this.state.animate.map((val,idx) => {return (Math.floor(i/2)==idx) ? false : val } )})}} 
+                    onMouseEnter={() => { this.setState({animate: this.state.animate.map((val,idx) => {return (Math.floor(i/2)==idx) ? true : false } )})}} 
+                    onMouseLeave={() => { this.setState({animate: this.state.animate.map((val,idx) => {return false } )})}} 
                     />)
       }
     }
