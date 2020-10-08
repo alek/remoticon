@@ -3,6 +3,4 @@
 
 Puzzles & hacks & more
 
-***Work in progress, come back later***
-
-***Conference date: Nov 6-8 2020***
+***Work in progress, come back later // conference date: Nov 6-8 2020***
