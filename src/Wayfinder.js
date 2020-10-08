@@ -69,20 +69,31 @@ function RoomOccupancy(props) {
   )
 }
 
-function RoomEntry(props) {
-  // console.log(props.logo.props)
-  // props.logo.setState({animate: true})
+class RoomEntry extends React.Component {
 
-  return (
-    <div key={"cell-" + props.i} className="RoomName">
-                        <h2 style={{ color: props.fill }}>{props.title}</h2>
-                        <h4>{props.participants} participants</h4>
-                        <RoomOccupancy total={20+Math.floor(20*Math.random())} active={props.participants} id={props.i} color={props.fill}/>
-                        </div>
-  )
+  constructor(props) {
+    super(props);
+    this.title = props.title;
+    this.idx = props.i;
+    this.participants = props.participants;
+    this.fill = props.fill;
+    this.onMouseEnter = props.onMouseEnter
+    this.onMouseLeave = props.onMouseLeave
+  }
+
+  render() {
+    return (
+      <div key={"cell-" + this.idx} className="RoomName" onMouseEnter={this.onMouseEnter} onMouseLeave={this.onMouseLeave}>
+                          <h2 style={{ color: this.fill }}>{this.title}</h2>
+                          <h4>{this.participants} participants</h4>
+                          <RoomOccupancy total={20+Math.floor(20*Math.random())} active={this.participants} id={this.idx} color={this.fill}/>
+                          </div>
+    )
+  }
 }
 
 
+// grid state container
 class WayfinderGrid extends React.Component {
 
   constructor(props) {
@@ -110,6 +121,9 @@ class WayfinderGrid extends React.Component {
                   "Making Glowy Origami",
                   "Circuit Sculpture Workshop",
                   "The Mechanics of FEA"]
+      this.state = {
+        "animate": Array(this.rooms.length).fill(false)
+      }
 
   }
 
@@ -119,12 +133,21 @@ class WayfinderGrid extends React.Component {
     // let palette = ["#D16061", "#38D9A0", "#5993dd", "#D78AD8"]
     let frontColor =  palette[Math.floor(Math.random()*palette.length)]
 
-    for (var i=0; i<42; i++) {
+    for (let i=0; i<42; i++) {
       if (i%2 === 0) {
         frontColor = palette[i/2%palette.length]
-        cells.push(<LogoFactory type={i/2} width={100} height={100} fill={frontColor} key={Math.random()}/>)
+        cells.push(<LogoFactory type={i/2} width={100} height={100} fill={frontColor} key={Math.random()} animate={this.state.animate[i/2]}/>)
       } else {
-        cells.push(<RoomEntry i={1} fill={frontColor} title={this.rooms[Math.floor(i/2)]} participants={10+Math.floor(10*Math.random())} logo={cells.slice(-1)[0]} key={Math.random()}/>)
+        cells.push(<RoomEntry 
+                    i={i} 
+                    fill={frontColor} 
+                    title={this.rooms[Math.floor(i/2)]} 
+                    participants={10+Math.floor(10*Math.random())} 
+                    logo={cells.slice(-1)[0]} 
+                    key={Math.random()}
+                    onMouseEnter={() => { this.setState({animate: this.state.animate.map((val,idx) => {return (Math.floor(i/2)==idx) ? true : val } )})}} 
+                    onMouseLeave={() => { this.setState({animate: this.state.animate.map((val,idx) => {return (Math.floor(i/2)==idx) ? false : val } )})}} 
+                    />)
       }
     }
 
