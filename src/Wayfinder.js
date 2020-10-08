@@ -70,6 +70,9 @@ function RoomOccupancy(props) {
 }
 
 function RoomEntry(props) {
+  // console.log(props.logo.props)
+  // props.logo.setState({animate: true})
+
   return (
     <div key={"cell-" + props.i} className="RoomName">
                         <h2 style={{ color: props.fill }}>{props.title}</h2>
@@ -117,14 +120,13 @@ class WayfinderGrid extends React.Component {
     let frontColor =  palette[Math.floor(Math.random()*palette.length)]
 
     for (var i=0; i<42; i++) {
-      if (i%2 == 0) {
+      if (i%2 === 0) {
         frontColor = palette[i/2%palette.length]
-        cells.push(<LogoFactory type={i/2} width={100} height={100} fill={frontColor}/>)
+        cells.push(<LogoFactory type={i/2} width={100} height={100} fill={frontColor} key={Math.random()}/>)
       } else {
-        cells.push(<RoomEntry i={1} fill={frontColor} title={this.rooms[Math.floor(i/2)]} participants={10+Math.floor(10*Math.random())} />)
+        cells.push(<RoomEntry i={1} fill={frontColor} title={this.rooms[Math.floor(i/2)]} participants={10+Math.floor(10*Math.random())} logo={cells.slice(-1)[0]} key={Math.random()}/>)
       }
     }
-
 
     return (
       <div className="Wayfinder-grid">
