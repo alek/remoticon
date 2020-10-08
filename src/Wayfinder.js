@@ -110,33 +110,16 @@ class WayfinderGrid extends React.Component {
 
   }
 
+  mouseEnter(foo) {
+    console.log(foo.currentTarget)
+    console.log(Math.random())
+  }
+
   render() {
     let cells = []
     let palette = ["#e9d4c3", "#d2c2ac", "#aa8805", "#99642c", "#d56231"]
     // let palette = ["#D16061", "#38D9A0", "#5993dd", "#D78AD8"]
     let frontColor =  palette[Math.floor(Math.random()*palette.length)]
-
-    // for (var i=0; i<42; i++) {
-
-    //   if (i%2 === 0) {
-    //     frontColor = palette[i/2%palette.length]
-    //     // cells.push(randomPolygon(i, frontColor))
-    //     // cells.push(LogoFactory.getLogo(2))
-    //   } else {
-    //     let participants = 10+Math.floor(10*Math.random())
-    //     cells.push(<div key={"cell-" + i} className="RoomName">
-    //                     <h2 style={{ color: frontColor }}>{this.rooms[Math.floor(i/2)]}</h2>
-    //                     <h4>{participants} participants</h4>
-    //                     <RoomOccupancy total={20+Math.floor(20*Math.random())} active={participants} id={i} color={frontColor}/>
-    //                     </div>)  
-    //   }
-      
-    // }
-
-
-    // cells.push(<LogoFactory type={0} width={100} height={100} fill={frontColor}/>)
-    // cells.push(<RoomEntry i={1} fill={frontColor} title="Test Room" participants={10+Math.floor(10*Math.random())} />)
-    // cells.push(<LogoFactory type={1} width={100} height={100} fill={frontColor}/>)
 
     for (var i=0; i<42; i++) {
       if (i%2 == 0) {
@@ -149,7 +132,7 @@ class WayfinderGrid extends React.Component {
 
 
     return (
-      <div className="Wayfinder-grid">
+      <div className="Wayfinder-grid" onMouseEnter={this.mouseEnter}>
         {cells}        
       </div>
       )
