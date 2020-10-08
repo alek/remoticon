@@ -110,11 +110,6 @@ class WayfinderGrid extends React.Component {
 
   }
 
-  mouseEnter(foo) {
-    console.log(foo.currentTarget)
-    console.log(Math.random())
-  }
-
   render() {
     let cells = []
     let palette = ["#e9d4c3", "#d2c2ac", "#aa8805", "#99642c", "#d56231"]
@@ -132,7 +127,7 @@ class WayfinderGrid extends React.Component {
 
 
     return (
-      <div className="Wayfinder-grid" onMouseEnter={this.mouseEnter}>
+      <div className="Wayfinder-grid">
         {cells}        
       </div>
       )
