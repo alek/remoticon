@@ -1,8 +1,8 @@
 import React from 'react';
 import './Wayfinder.css';
-// import VectorLogo from './VectorLogo';
 import LogoFactory from './LogoFactory'
 
+// top-level header nav
 class Nav extends React.Component {
 
   constructor(props) {
@@ -29,7 +29,7 @@ class Nav extends React.Component {
     const entries = []    
     for (const [key, value] of Object.entries(this.links)) {
       let className = ""
-      if (key === this.state["selected"]) {
+      if (key === this.state.selected) {
         className = "nav-selected"
       }
       entries.push(<li key={key}><a href={value} className={className} onClick={() => this.clickHandler(key)}>{key}</a></li>)
@@ -42,6 +42,7 @@ class Nav extends React.Component {
   }
 }
 
+// main event header
 function WayfinderHeader() {
   return (
       <div className="Wayfinder-header">
@@ -51,16 +52,41 @@ function WayfinderHeader() {
     )
 }
 
+// Wayfinder grid navigation
 class WayfinderNav extends React.Component {
+  
+  constructor(props) {
+    super(props);
+    this.links = ["Workshops", "Talks", "Demos", "More"]
+    this.state = {selected: "Workshops"}
+    this.onClick = props.onClick
+  }
+
+  clickHandler(key) {
+    this.setState({
+      selected: key
+    })
+    this.onClick(key)
+  }
+
   render() {
+    const entries = []
+    for (let i=0; i<this.links.length; i++) {
+      let className = "Wayfinder-nav-entry";
+      if (this.links[i] === this.state.selected) {
+        className = "Wayfinder-nav-selected";
+      }
+      entries.push(<div className={className} onClick={() => this.clickHandler(this.links[i])}>{this.links[i]}</div>)
+    }
     return (
       <div className="Wayfinder-nav">
-      nav
+      {entries}
       </div>
       )
   }
 }
 
+// room occupancy section
 function RoomOccupancy(props) {
   let entries = []  
   for (var i=0; i<props.total; i++) {
@@ -79,6 +105,7 @@ function RoomOccupancy(props) {
   )
 }
 
+// chatroom entry
 class RoomEntry extends React.Component {
 
   constructor(props) {
@@ -103,11 +130,16 @@ class RoomEntry extends React.Component {
 }
 
 
-// grid state container
+// master grid state container
 class WayfinderGrid extends React.Component {
 
   constructor(props) {
     super(props);
+    this.type = props.type;
+    this.rooms = []
+
+    if (this.type === "Workshops") {
+ 
     this.rooms = ["Remoticon Central", 
                   "Live Breaking into Encrypted 3D Printer Firmware", 
                   "Soldering, Nothing To Be Afraid Of!",
@@ -131,6 +163,8 @@ class WayfinderGrid extends React.Component {
                   "Making Glowy Origami",
                   "Circuit Sculpture Workshop",
                   "The Mechanics of FEA"]
+
+                }
       this.state = {
         "animate": Array(this.rooms.length).fill(false)
       }
@@ -155,7 +189,7 @@ class WayfinderGrid extends React.Component {
                     participants={10+Math.floor(10*Math.random())} 
                     logo={cells.slice(-1)[0]} 
                     key={Math.random()}
-                    onMouseEnter={() => { this.setState({animate: this.state.animate.map((val,idx) => {return (Math.floor(i/2)==idx) ? true : false } )})}} 
+                    onMouseEnter={() => { this.setState({animate: this.state.animate.map((val,idx) => {return (Math.floor(i/2)===idx) ? true : false } )})}} 
                     onMouseLeave={() => { this.setState({animate: this.state.animate.map((val,idx) => {return false } )})}} 
                     />)
       }
@@ -184,15 +218,26 @@ class CommandLine extends React.Component {
 }
 
 
-function Wayfinder() {
-  return (
-    <div className="Wayfinder-container">
-      <WayfinderHeader />
-      <WayfinderNav />
-      <WayfinderGrid />
-      <CommandLine />
-    </div>
-    )
+class Wayfinder extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      "active": "Workshops"
+    }
+
+  }
+
+  render() {
+    return (
+      <div className="Wayfinder-container">
+        <WayfinderHeader />
+        <WayfinderNav onClick={(val) => this.setState({active: val})}/>
+        <WayfinderGrid type={this.state.active}/>
+        <CommandLine />
+      </div>
+      )
+  }
 }
 
 export default Wayfinder;
