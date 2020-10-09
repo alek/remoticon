@@ -123,16 +123,19 @@ strong {
 .input-control {
   width: 972px;
   margin: auto;
-  margin-top: 50px;
+  margin-top: 0px;
 }
+
+textarea:focus {outline: none; }
 
 textarea {
   background-color: #111212;
   color: #fff;
-  padding: 20px;
+  padding: 15px 15px 15px 0px;
   height: 24px;
   width: 100%;
   border: 0px;
-  font-size: 18px;
+  font-size: 14px;
+  font-weight: 300;
   font-family: 'Roboto Mono', monospace;
 }
