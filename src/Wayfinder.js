@@ -51,6 +51,16 @@ function WayfinderHeader() {
     )
 }
 
+class WayfinderNav extends React.Component {
+  render() {
+    return (
+      <div className="Wayfinder-nav">
+      nav
+      </div>
+      )
+  }
+}
+
 function RoomOccupancy(props) {
   let entries = []  
   for (var i=0; i<props.total; i++) {
@@ -178,6 +188,7 @@ function Wayfinder() {
   return (
     <div className="Wayfinder-container">
       <WayfinderHeader />
+      <WayfinderNav />
       <WayfinderGrid />
       <CommandLine />
     </div>

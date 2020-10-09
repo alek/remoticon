@@ -7,7 +7,7 @@
 .Wayfinder-header {
   color: #fff;
   font-family: 'Roboto', sans-serif;
-  padding: 40px 10px 20px 10px;
+  padding: 40px 10px 20px 0px;
   display: flex;
   justify-content: space-between;
 }
@@ -40,6 +40,11 @@
 
 strong {
   font-weight: 700;
+}
+
+.Wayfinder-nav {
+  font-family: 'Roboto Mono', monospace;
+  color: #fff;
 }
 
 .Wayfinder-grid {
