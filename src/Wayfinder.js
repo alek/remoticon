@@ -135,12 +135,15 @@ class WayfinderGrid extends React.Component {
 
   constructor(props) {
     super(props);
-    this.type = props.type;
-    this.rooms = []
+    this.rooms = this.getRooms(props.type)
+    this.state = {
+      "animate": Array(this.rooms.length).fill(false)
+    }
+  }
 
-    if (this.type === "Workshops") {
- 
-    this.rooms = ["Remoticon Central", 
+  getRooms(type) {
+    if (type === "Workshops") {
+        return ["Remoticon Central", 
                   "Live Breaking into Encrypted 3D Printer Firmware", 
                   "Soldering, Nothing To Be Afraid Of!",
                   "Introduction to Modular Synthesis using VCV Rack",
@@ -163,15 +166,15 @@ class WayfinderGrid extends React.Component {
                   "Making Glowy Origami",
                   "Circuit Sculpture Workshop",
                   "The Mechanics of FEA"]
-
+                } else {
+                  return ["foo", "bar", "baz"]
                 }
-      this.state = {
-        "animate": Array(this.rooms.length).fill(false)
-      }
-
   }
 
   render() {
+
+    const rooms = this.getRooms(this.props.type)
+
     let cells = []
     let palette = ["#e9d4c3", "#d2c2ac", "#aa8805", "#99642c", "#d56231"]
     // let palette = ["#D16061", "#38D9A0", "#5993dd", "#D78AD8"]
@@ -185,7 +188,7 @@ class WayfinderGrid extends React.Component {
         cells.push(<RoomEntry 
                     i={i} 
                     fill={frontColor} 
-                    title={this.rooms[Math.floor(i/2)]} 
+                    title={rooms[Math.floor(i/2)]} 
                     participants={10+Math.floor(10*Math.random())} 
                     logo={cells.slice(-1)[0]} 
                     key={Math.random()}
@@ -233,7 +236,7 @@ class Wayfinder extends React.Component {
       <div className="Wayfinder-container">
         <WayfinderHeader />
         <WayfinderNav onClick={(val) => this.setState({active: val})}/>
-        <WayfinderGrid type={this.state.active}/>
+        <WayfinderGrid type={this.state.active} />
         <CommandLine />
       </div>
       )
