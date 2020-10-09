@@ -166,9 +166,13 @@ class WayfinderGrid extends React.Component {
                   "Making Glowy Origami",
                   "Circuit Sculpture Workshop",
                   "The Mechanics of FEA"]
-                } else {
-                  return ["foo", "bar", "baz"]
-                }
+      } else if (type === "Talks") {
+          return ["Foo", "Bar", "Baz"]
+      } else if (type === "Demos") {
+          return ["Demo1", "Demo2", "Demo3", "Demo4"]
+      } else {
+          return ["Dungeon1", "Dungeon2", "Dungeon3"]
+      }
   }
 
   render() {
@@ -177,10 +181,9 @@ class WayfinderGrid extends React.Component {
 
     let cells = []
     let palette = ["#e9d4c3", "#d2c2ac", "#aa8805", "#99642c", "#d56231"]
-    // let palette = ["#D16061", "#38D9A0", "#5993dd", "#D78AD8"]
     let frontColor =  palette[Math.floor(Math.random()*palette.length)]
 
-    for (let i=0; i<42; i++) {
+    for (let i=0; i<rooms.length*2; i++) {
       if (i%2 === 0) {
         frontColor = palette[i/2%palette.length]
         cells.push(<LogoFactory type={i/2} width={100} height={100} fill={frontColor} key={Math.random()} animate={this.state.animate[i/2]}/>)
