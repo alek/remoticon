@@ -120,15 +120,15 @@ strong {
   background-color: #fff;
 }
 
-.input-control {
+.CommandLine {
   width: 972px;
   margin: auto;
   margin-top: 0px;
 }
 
-textarea:focus {outline: none; }
+.CommandLine textarea:focus {outline: none; }
 
-textarea {
+.CommandLine textarea {
   background-color: #111212;
   color: #fff;
   padding: 15px 15px 15px 0px;
@@ -138,4 +138,21 @@ textarea {
   font-size: 14px;
   font-weight: 300;
   font-family: 'Roboto Mono', monospace;
+}
+
+.TickerBar {
+  background-color: #fff;
+}
+
+.ticker__element {
+  height: 20px;
+  background-color: #fff;
+  width: 100%;
+  text-transform: uppercase;
+  font-size: 12px;
+  line-height: 20px;
+  display: flex;
+  align-items: center;
+  white-space: nowrap; 
+  padding-right: 100px;
 }

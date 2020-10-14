@@ -1,6 +1,7 @@
 import React from 'react';
 import './Wayfinder.css';
 import LogoFactory from './LogoFactory'
+import TickerBar from './TickerBar'
 
 // top-level header nav
 class Nav extends React.Component {
@@ -210,12 +211,11 @@ class WayfinderGrid extends React.Component {
 
 }
 
-
 class CommandLine extends React.Component {
 
   render() {
     return (
-      <div className="input-control">
+      <div className="CommandLine">
       <textarea id="w3review" name="w3review" rows="4" cols="50">
       </textarea>
       </div>
@@ -240,6 +240,7 @@ class Wayfinder extends React.Component {
         <WayfinderHeader />
         <WayfinderNav onClick={(val) => this.setState({active: val})}/>
         <WayfinderGrid type={this.state.active} />
+        <TickerBar />
         <CommandLine />
       </div>
       )
