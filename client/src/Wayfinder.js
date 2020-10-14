@@ -234,13 +234,19 @@ class Wayfinder extends React.Component {
 
   }
 
+  callApi = async () => {
+      const response = await fetch('/api/hello');
+      const body = await response.json();
+  }
+
   render() {
+    this.callApi()
     return (
       <div className="Wayfinder-container">
         <WayfinderHeader />
         <WayfinderNav onClick={(val) => this.setState({active: val})}/>
         <WayfinderGrid type={this.state.active} />
-        <TickerBar text={"What every picture, of whatever form, must have in common with reality in order to be able to represent it at all—rightly or falsely—is the logical form. "}/>
+        <TickerBar />
         <CommandLine />
       </div>
       )
