@@ -5,6 +5,10 @@ class TickerBar extends React.Component {
   
   constructor(props) {
     super(props);
+    this.state = {
+      "text": props.text
+    }
+    
   }
 
   render() {
@@ -13,8 +17,7 @@ class TickerBar extends React.Component {
     <Ticker>
         {({ index }) => (
             <>
-                <h1>What every picture, of whatever form, must have in common with reality in order to be able to represent it at all—rightly or falsely—is the logical form. </h1>
-                <img src="www.my-image-source.com/" alt=""/>
+                <h1>{this.state.text}</h1>
             </>
         )}
     </Ticker>

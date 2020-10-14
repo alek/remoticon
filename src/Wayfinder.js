@@ -1,7 +1,7 @@
 import React from 'react';
 import './Wayfinder.css';
-import LogoFactory from './LogoFactory'
-import TickerBar from './TickerBar'
+import LogoFactory from './components/LogoFactory'
+import TickerBar from './components/TickerBar'
 
 // top-level header nav
 class Nav extends React.Component {
@@ -240,7 +240,7 @@ class Wayfinder extends React.Component {
         <WayfinderHeader />
         <WayfinderNav onClick={(val) => this.setState({active: val})}/>
         <WayfinderGrid type={this.state.active} />
-        <TickerBar />
+        <TickerBar text={"What every picture, of whatever form, must have in common with reality in order to be able to represent it at all—rightly or falsely—is the logical form. "}/>
         <CommandLine />
       </div>
       )
