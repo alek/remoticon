@@ -1,5 +1,5 @@
 import React from 'react';
-import './Wayfinder.css';
+import './Terminal.css';
 import TickerBar from './components/TickerBar'
 
 
@@ -8,8 +8,7 @@ class CommandLine extends React.Component {
   render() {
     return (
       <div className="CommandLine">
-      <textarea id="w3review" name="w3review" rows="4" cols="50">
-      </textarea>
+      <input type="text" placeholder="Enter Something"/>
       </div>
       )
   }
@@ -39,7 +38,7 @@ class Terminal extends React.Component {
   timer() {
     fetch("/api/mqtt")
       .then(response => response.text())
-      .then(data =>  this.setState({ message: data["message"] }) );
+      .then(data =>  this.setState({ message: JSON.parse(data)["message"] }) );
   }
 
   render() {
