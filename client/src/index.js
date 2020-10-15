@@ -2,11 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import Wayfinder from './Wayfinder';
+import Terminal from './Terminal';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   <React.StrictMode>
     <Wayfinder />
+    <Terminal />
   </React.StrictMode>,
   document.getElementById('root')
 );

@@ -1,7 +1,6 @@
 import React from 'react';
 import './Wayfinder.css';
 import LogoFactory from './components/LogoFactory'
-import TickerBar from './components/TickerBar'
 
 // top-level header nav
 class Nav extends React.Component {
@@ -211,18 +210,6 @@ class WayfinderGrid extends React.Component {
 
 }
 
-class CommandLine extends React.Component {
-
-  render() {
-    return (
-      <div className="CommandLine">
-      <textarea id="w3review" name="w3review" rows="4" cols="50">
-      </textarea>
-      </div>
-      )
-  }
-}
-
 
 class Wayfinder extends React.Component {
 
@@ -233,33 +220,12 @@ class Wayfinder extends React.Component {
     }
   }
 
-  componentDidMount() {
-    this.timer = this.timer.bind(this)
-    const interval = setInterval(this.timer, 1000);
-  }
-
-  getText() {
-    if (this.state.message) {
-      return this.state.message;
-    } else {
-      return "Hackaday Remoticon // November 6 - November 8 2020. Keep an eye on this website for more info. Use MQTT broker.shiftr.io/remoticon to broadcast here."
-    }
-  }
-
-  timer() {
-    fetch("/api/mqtt")
-      .then(response => response.text())
-      .then(data =>  this.setState({ message: data["message"] }) );
-  }
-
   render() {
     return (
       <div className="Wayfinder-container">
         <WayfinderHeader />
         <WayfinderNav onClick={(val) => this.setState({active: val})}/>
-        <WayfinderGrid type={this.state.active} />
-        <TickerBar getText={() => this.getText()}/>
-        <CommandLine />
+        <WayfinderGrid type={this.state.active} />        
       </div>
       )
   }
