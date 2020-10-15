@@ -59,7 +59,7 @@ class WayfinderNav extends React.Component {
   constructor(props) {
     super(props);
     this.links = ["Workshops", "Talks", "Demos", "More"]
-    this.state = {selected: "Workshops"}
+    this.state = { selected: "Workshops" }
     this.onClick = props.onClick
   }
 
@@ -138,7 +138,7 @@ class WayfinderGrid extends React.Component {
     super(props);
     this.rooms = this.getRooms(props.type)
     this.state = {
-      "animate": Array(this.rooms.length).fill(false)
+      animate: Array(this.rooms.length).fill(false)
     }
   }
 
@@ -229,24 +229,36 @@ class Wayfinder extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      "active": "Workshops"
+      active: "Workshops"
     }
-
   }
 
-  callApi = async () => {
-      const response = await fetch('/api/hello');
-      const body = await response.json();
+  componentDidMount() {
+    this.timer = this.timer.bind(this)
+    const interval = setInterval(this.timer, 1000);
+  }
+
+  getText() {
+    if (this.state.message) {
+      return this.state.message;
+    } else {
+      return "Hackaday Remoticon // November 6 - November 8 2020. Keep an eye on this website for more info. Use MQTT broker.shiftr.io/remoticon to broadcast here."
+    }
+  }
+
+  timer() {
+    fetch("/api/mqtt")
+      .then(response => response.text())
+      .then(data =>  this.setState({ message: data["message"] }) );
   }
 
   render() {
-    this.callApi()
     return (
       <div className="Wayfinder-container">
         <WayfinderHeader />
         <WayfinderNav onClick={(val) => this.setState({active: val})}/>
         <WayfinderGrid type={this.state.active} />
-        <TickerBar />
+        <TickerBar getText={() => this.getText()}/>
         <CommandLine />
       </div>
       )
