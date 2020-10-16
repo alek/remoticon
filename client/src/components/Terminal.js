@@ -1,7 +1,7 @@
 import React from 'react';
 import './Terminal.css';
-import TickerBar from './components/TickerBar'
-import CommandLine from './components/CommandLine'
+import TickerBar from './TickerBar'
+import CommandLine from './CommandLine'
 import { useContext } from 'react';
 
 class Terminal extends React.Component {

@@ -5,8 +5,8 @@ import { Provider } from "react-redux";
 import store from "./redux/store";
 
 import './index.css';
-import Wayfinder from './Wayfinder';
-import Terminal from './Terminal';
+import Wayfinder from './components/Wayfinder';
+import Terminal from './components/Terminal';
 import * as serviceWorker from './serviceWorker';
 
 class App extends React.Component {

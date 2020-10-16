@@ -1,8 +1,9 @@
 import React from 'react';
 import './Wayfinder.css';
-import LogoFactory from './components/LogoFactory'
+import LogoFactory from './LogoFactory'
 
 import { connect } from "react-redux";
+import { getCommandsState } from "../redux/selectors";
 
 // top-level header nav
 class Nav extends React.Component {
@@ -179,6 +180,7 @@ class WayfinderGrid extends React.Component {
 
   render() {
 
+
     const rooms = this.getRooms(this.props.type)
 
     let cells = []
@@ -223,6 +225,9 @@ class Wayfinder extends React.Component {
   }
 
   render() {
+    // todo: fork behavior based on active command
+    let command = this.props.state.commands
+    console.log(command)
     return (
       <div className="Wayfinder-container">
         <WayfinderHeader />
@@ -234,4 +239,10 @@ class Wayfinder extends React.Component {
 }
 
 
-export default Wayfinder;
+// export default Wayfinder;
+
+const mapStateToProps = state => {
+  return { state };
+};
+
+export default connect(mapStateToProps)(Wayfinder);
