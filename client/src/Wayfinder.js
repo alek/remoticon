@@ -2,6 +2,8 @@ import React from 'react';
 import './Wayfinder.css';
 import LogoFactory from './components/LogoFactory'
 
+import { connect } from "react-redux";
+
 // top-level header nav
 class Nav extends React.Component {
 
@@ -230,5 +232,6 @@ class Wayfinder extends React.Component {
       )
   }
 }
+
 
 export default Wayfinder;
