@@ -29,7 +29,8 @@ class Terminal extends React.Component {
     fetch("/api/mqtt")
       .then(response => response.text())
       .then(data =>  this.setState({ message: JSON.parse(data)["message"] }) )
-      .catch(error => { console.error('Error:', "can't fetch mqtt content"); });
+      .catch(error => { });
+      // .catch(error => { console.error('Error:', "can't fetch mqtt content"); });
   }
 
   render() {
