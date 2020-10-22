@@ -13,7 +13,6 @@ class Nav extends React.Component {
     this.clickHandler = this.clickHandler.bind(this);
     this.links = {
       "live": "#",
-      "talks": "#talks",
       "about": "#about",
       "tickets": "https://www.eventbrite.com/e/remoticon-tickets-115886905855"
     }
@@ -60,7 +59,7 @@ class WayfinderNav extends React.Component {
   
   constructor(props) {
     super(props);
-    this.links = ["Workshops", "Talks", "Demos", "More"]
+    this.links = ["Workshops", "Keynotes", "Rooms", "More"]
     this.state = { selected: "Workshops" }
     this.onClick = props.onClick
   }
@@ -114,6 +113,7 @@ class RoomEntry extends React.Component {
   constructor(props) {
     super(props);
     this.title = props.title;
+    this.url = props.url;
     this.idx = props.i;
     this.participants = props.participants;
     this.fill = props.fill;
@@ -123,11 +123,13 @@ class RoomEntry extends React.Component {
 
   render() {
     return (
+      <a href={this.url}>
       <div key={"cell-" + this.idx} className="RoomName" onMouseEnter={this.onMouseEnter} onMouseLeave={this.onMouseLeave}>
                           <h2 style={{ color: this.fill }}>{this.title}</h2>
                           <h4>{this.participants} participants</h4>
                           <RoomOccupancy total={30} active={this.participants} id={this.idx} color={this.fill}/>
                           </div>
+                          </a>
     )
   }
 }
@@ -146,35 +148,34 @@ class WayfinderGrid extends React.Component {
 
   getRooms(type) {
     if (type === "Workshops") {
-        return ["Remoticon Central", 
-                  "Live Breaking into Encrypted 3D Printer Firmware", 
-                  "Soldering, Nothing To Be Afraid Of!",
-                  "Introduction to Modular Synthesis using VCV Rack",
-                  "Prototyping to the Max",
-                  "PCB Reverse Engineering",
-                  "KiCad to Blender > Photorealistic PCB renders",
-                  "Tiny ML",
-                  "Crowd-Controlled Robots",
-                  "Basics of RF Emissions Debugging",
-                  "Introduction to Firmware Reverse Engineering",
-                  "The Hackers Guide to Hardware Debugging",
-                  "Remoticon: Learn How to Hack a Car",
-                  "MachineChat - JEDI One - A Universal Sensor Hub",
-                  "How to 3D Print onto Fabric",
-                  "Give Pigweed a Whirl",
-                  "Radi-uhoh: What Is This SDR Thing and How Do I Use",
-                  "Finding Sound and Making Microphones",
-                  "Creative Code Experiments",
-                  "SMD Challenge",
-                  "Making Glowy Origami",
-                  "Circuit Sculpture Workshop",
-                  "The Mechanics of FEA"]
-      } else if (type === "Talks") {
-          return ["Foo", "Bar", "Baz"]
-      } else if (type === "Demos") {
-          return ["Demo1", "Demo2", "Demo3", "Demo4"]
+        return [["Live Breaking into Encrypted 3D Printer Firmware", "https://hackaday.io/project/175071-remoticon-breaking-into-3d-printer-firmware"], 
+                  ["Soldering, Nothing To Be Afraid Of!", "https://hackaday.io/project/175072-remoticon-soldering-nothing-to-be-afraid-of"],
+                  ["Introduction to Modular Synthesis using VCV Rack", "https://hackaday.io/project/175074-introduction-to-modular-synthesis-using-vcv-rack"],
+                  ["Prototyping to the Max", "https://hackaday.io/project/175075-remoticon-prototyping-to-the-max"],
+                  ["PCB Reverse Engineering", "https://hackaday.io/project/175076-remoticon-pcb-reverse-engineering"],
+                  ["KiCad to Blender > Photorealistic PCB renders", "https://hackaday.io/project/175076-remoticon-pcb-reverse-engineering"],
+                  ["Tiny ML", "https://hackaday.io/project/175078-remoticon-tiny-ml"],
+                  ["Crowd-Controlled Robots", "https://hackaday.io/project/175079-remoticon-crowd-controlled-robots"],
+                  ["Basics of RF Emissions Debugging", "https://hackaday.io/project/175080-remoticon-basics-of-rf-emissions-debugging"],
+                  ["Introduction to Firmware Reverse Engineering", "https://hackaday.io/project/175081-remoticon-intro-to-firmware-reverse-engineering"],
+                  ["The Hackers Guide to Hardware Debugging", "https://hackaday.io/project/175082-remoticon-the-hackers-guide-to-hardware-debugging"],
+                  ["Remoticon: Learn How to Hack a Car", "https://hackaday.io/project/175126-learn-how-to-hack-a-car-remoticon-workshop"],
+                  ["MachineChat - JEDI One - A Universal Sensor Hub", "https://hackaday.io/project/175085-remoticon-machinechat-a-universal-sensor-hub"],
+                  ["How to 3D Print onto Fabric", "https://hackaday.io/project/175086-remoticon-how-to-3d-print-onto-fabric"],
+                  ["Give Pigweed a Whirl", "https://hackaday.io/project/175167-remoticon-give-pigweed-a-whirl"],
+                  ["Radi-uhoh: What Is This SDR Thing and How Do I Use", "https://hackaday.io/project/175168-radi-uhoh-what-is-this-sdr-thing-and-how-do-i-use"],
+                  ["Finding Sound and Making Microphones", "https://hackaday.io/project/175169-remoticon-finding-sound-and-making-microphones"],
+                  ["Creative Code Experiments", "https://hackaday.io/project/175170-remoticon-creative-code-experiments"],
+                  ["SMD Challenge", "https://hackaday.io/project/175171-remoticon-smd-challenge"],
+                  ["Making Glowy Origami", "https://hackaday.io/project/175172-remoticon-making-glowy-origami"],
+                  ["Circuit Sculpture Workshop", "https://hackaday.io/project/175173-remoticon-circuit-sculpture-workshop"],
+                  ["The Mechanics of FEA", "https://hackaday.io/project/175174-remoticon-the-mechanics-of-fea"]]
+      } else if (type === "Keynotes") {
+          return [["Opening Ceremonies",""], ["Keynote Talk 1",""], ["Keynote Talk 2",""], ["Closing Ceremonies",""]]
+      } else if (type === "Rooms") {
+          return [["RBG",""], ["Caturday",""], ["Replicant",""], ["Magic Smoke Lounge",""], ["Demo Room",""], ["Mr. Robot",""]]
       } else {
-          return ["Dungeon1", "Dungeon2", "Dungeon3"]
+          return [["Dungeon1",""], ["Dungeon2",""], ["Dungeon3",""]]
       }
   }
 
@@ -195,8 +196,9 @@ class WayfinderGrid extends React.Component {
         cells.push(<RoomEntry 
                     i={i} 
                     fill={frontColor} 
-                    title={rooms[Math.floor(i/2)]} 
-                    participants={10+Math.floor(10*Math.random())} 
+                    title={rooms[Math.floor(i/2)][0]} 
+                    url={rooms[Math.floor(i/2)][1]} 
+                    participants={30+Math.floor(10*Math.random())} 
                     logo={cells.slice(-1)[0]} 
                     key={Math.random()}
                     onMouseEnter={() => { this.setState({animate: this.state.animate.map((val,idx) => {return (Math.floor(i/2)===idx) ? true : false } )})}} 

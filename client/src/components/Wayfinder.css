@@ -80,6 +80,10 @@ strong {
   grid-template-rows: repeat(6, 120px [col-start]);
 }
 
+.Wayfinder-grid a {
+  text-decoration: none;
+  color: #fff;
+}
 
 .Wayfinder-grid svg {
   cursor: pointer;
@@ -158,6 +162,9 @@ strong {
 @media only screen and (max-width: 550px) {
   .Wayfinder-grid {
     grid-template-columns: repeat(3, 120px [col-start]);
+  }
+  .Wayfinder-header .menu-nav {
+   display: none;
   }
 }
 
