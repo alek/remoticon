@@ -17,10 +17,8 @@ var client = mqtt.connect('mqtt://try:try@broker.shiftr.io', {
 });
 
 client.on('connect', function(){
-  console.log('client has connected!');
 
   client.subscribe('/remoticon');
-
   setInterval(function(){
     client.publish('/remoticon', "starting in " + Math.floor((new Date("Nov 6 2020") - new Date())/1000) + "s");
   }, 1000);

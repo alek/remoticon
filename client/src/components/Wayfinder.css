@@ -119,3 +119,50 @@ strong {
 .RoomOccupancy .EntryOccupied {
   background-color: #fff;
 }
+
+
+@media only screen and (max-width: 1140px) {
+  .Wayfinder-container {
+    width: 90%;
+    margin: auto;
+  }
+
+}
+
+
+@media only screen and (max-width: 1040px) {
+  .Wayfinder-container {
+    width: 95%;
+    margin: auto;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .Wayfinder-grid {
+    grid-template-columns: repeat(6, 120px [col-start]);
+  }
+}
+
+@media only screen and (max-width: 850px) {
+  .Wayfinder-grid {
+    grid-template-columns: repeat(5, 120px [col-start]);
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .Wayfinder-grid {
+    grid-template-columns: repeat(4, 120px [col-start]);
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .Wayfinder-grid {
+    grid-template-columns: repeat(3, 120px [col-start]);
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .Wayfinder-grid {
+    grid-template-columns: repeat(2, 120px [col-start]);
+  }
+}
