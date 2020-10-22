@@ -175,7 +175,7 @@ class WayfinderGrid extends React.Component {
       } else if (type === "Rooms") {
           return [["RBG",""], ["Caturday",""], ["Replicant",""], ["Magic Smoke Lounge",""], ["Demo Room",""], ["Mr. Robot",""]]
       } else {
-          return [["Dungeon1",""], ["Dungeon2",""], ["Dungeon3",""]]
+          return [["h4x-rc-1",""], ["h4x-rc-2",""], ["h4x-rc-3",""]]
       }
   }
 
