@@ -13,7 +13,7 @@ class Nav extends React.Component {
     this.clickHandler = this.clickHandler.bind(this);
     this.links = {
       "live": "#",
-      "about": "#about",
+      "about": "https://hackaday.com/tag/2020-hackaday-remoticon/",
       "tickets": "https://www.eventbrite.com/e/remoticon-tickets-115886905855"
     }
     this.state = {
