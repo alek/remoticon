@@ -229,7 +229,6 @@ class Wayfinder extends React.Component {
   render() {
     // todo: fork behavior based on active command
     let command = this.props.state.commands
-    console.log(command)
     return (
       <div className="Wayfinder-container">
         <WayfinderHeader />
