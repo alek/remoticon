@@ -1,9 +1,11 @@
 import React from 'react';
 import './Wayfinder.css';
 import LogoFactory from './LogoFactory'
+import About from './About'
 
 import { connect } from "react-redux";
 import { getCommandsState } from "../redux/selectors";
+
 
 // top-level header nav
 class Nav extends React.Component {
@@ -13,18 +15,20 @@ class Nav extends React.Component {
     this.clickHandler = this.clickHandler.bind(this);
     this.links = {
       "live": "#",
-      "about": "https://hackaday.com/tag/2020-hackaday-remoticon/",
+      "about": "#",
       "tickets": "https://www.eventbrite.com/e/remoticon-tickets-115886905855"
     }
     this.state = {
       selected: "live"
     }
+    this.onClick = props.onClick
   }
 
   clickHandler(key) {
     this.setState({
       selected: key
     })
+    this.onClick(key)
   }
 
   render() {
@@ -45,11 +49,11 @@ class Nav extends React.Component {
 }
 
 // main event header
-function WayfinderHeader() {
+function WayfinderHeader(props) {
   return (
       <div className="Wayfinder-header">
         <h1>Hackaday <strong>Remoticon 2020</strong></h1>
-        <Nav />
+        <Nav onClick={props.onClick} />
       </div>
     )
 }
@@ -222,7 +226,8 @@ class Wayfinder extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      active: "Workshops"
+      active: "Workshops",
+      menu: "live"
     }
   }
 
@@ -231,9 +236,10 @@ class Wayfinder extends React.Component {
     let command = this.props.state.commands
     return (
       <div className="Wayfinder-container">
-        <WayfinderHeader />
+        <WayfinderHeader onClick={(val) => this.setState({menu: val})}/>
         <WayfinderNav onClick={(val) => this.setState({active: val})}/>
-        <WayfinderGrid type={this.state.active} />        
+        <WayfinderGrid type={this.state.active} />              
+        { (this.state.menu === "about") && <About /> }
       </div>
       )
   }

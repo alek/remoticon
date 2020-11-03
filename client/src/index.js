@@ -9,6 +9,7 @@ import Wayfinder from './components/Wayfinder';
 import Terminal from './components/Terminal';
 import * as serviceWorker from './serviceWorker';
 
+
 class App extends React.Component {
 
 	render() {
