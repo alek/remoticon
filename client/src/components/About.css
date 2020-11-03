@@ -9,7 +9,8 @@
 	min-height: 100vh;
 	color: #fff;
 	height: 150%;
-	animation: fadein 0.25s;
+	transition-timing-function: ease-in;
+	animation: fadein 2s;
 }
 
 @keyframes fadein {
