@@ -48,7 +48,7 @@ strong {
   display: flex;
   justify-content: center;
   padding-top: 50px;
-  font-size: 12px;
+  font-size: 14px;
   padding-bottom: 10px;
   width: 400px;
   margin: auto;
@@ -96,7 +96,7 @@ strong {
 }
 
 .RoomName h2 {
-  font-size: 14px;
+  font-size: 15px;
   font-family: "Roboto", sans-serif;
 }
 
