@@ -8,8 +8,8 @@
 	width: 100%;
 	min-height: 100vh;
 	color: #fff;
-	overflow-y: auto;
-	/*animation: fadein 1.5s;*/
+	height: 150%;
+	animation: fadein 0.25s;
 }
 
 @keyframes fadein {
