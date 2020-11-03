@@ -199,6 +199,99 @@ class Logo7 extends VectorLogo {
 }
 
 
+// hollow rectangle
+class Logo8 extends VectorLogo {
+
+  render() {
+    let img = []
+    if (this.state.animate) {
+      img.push(<rect x={0} y={0} width={this.width} height={this.width} stroke={this.fill} strokeWidth="0" fill={this.fill} key={Math.random()}/>)
+      img.push(<rect x={0} y={0} width={this.width} height={this.width} stroke={this.fill} strokeWidth="0" fill={this.background} key={Math.random()}>
+                <animate attributeName="x" values={0 + ";" + this.width + ";" + 0} dur="3s" repeatCount="indefinite" />
+               </rect>)
+      img.push(<rect x={this.width*0.2} y={this.height*0.2} width={this.width*0.6} height={this.width*0.6} stroke={this.fill} strokeWidth="0" fill={this.background} key={Math.random()}>
+                <animate attributeName="x" values={this.width + ";" + 0 + ";" + this.width} dur="2s" repeatCount="indefinite" />
+              </rect>)
+
+    } else {
+      img.push(<rect x={0} y={0} width={this.width} height={this.width} stroke={this.fill} strokeWidth="0" fill={this.fill} key={Math.random()}/>)
+      img.push(<rect x={this.width*0.2} y={this.height*0.2} width={this.width*0.6} height={this.width*0.6} stroke={this.fill} strokeWidth="0" fill={this.background} key={Math.random()}/>)
+    }
+
+    return super.render(img)
+  }
+}
+
+
+// X sign
+class Logo9 extends VectorLogo {
+
+  render() {
+    let img = []
+    if (this.state.animate) {
+      img.push(<rect x={0} y={this.width*0.4} width={this.width} height={this.width*0.2} stroke={this.fill} strokeWidth="0" rx="5" fill={this.fill} 
+                     transform={"rotate(45," + this.width/2 + "," + this.width/2 + ")"} key={Math.random()}>
+                     <animateTransform attributeName="transform" attributeType="XML" type="rotate" 
+                     from={"0," + this.width/2 + "," + this.width/2} to={"360," + this.width/2 + "," + this.width/2} dur="2s" repeatCount="indefinite"/>
+                     </rect>)
+      img.push(<rect x={0} y={this.width*0.4} width={this.width} height={this.width*0.2} stroke={this.fill} strokeWidth="0" rx="5" fill={this.fill} 
+                     transform={"rotate(-45," + this.width/2 + "," + this.width/2 + ")"} key={Math.random()}>
+                     <animateTransform attributeName="transform" attributeType="XML" type="rotate" 
+                     from={"360," + this.width/2 + "," + this.width/2} to={"0," + this.width/2 + "," + this.width/2} dur="7s" repeatCount="indefinite"/>
+                     </rect>)
+    } else {
+      img.push(<rect x={0} y={this.width*0.4} width={this.width} height={this.width*0.2} stroke={this.fill} strokeWidth="0" rx="5" fill={this.fill} 
+                     transform={"rotate(45," + this.width/2 + "," + this.width/2 + ")"} key={Math.random()}/>)
+      img.push(<rect x={0} y={this.width*0.4} width={this.width} height={this.width*0.2} stroke={this.fill} strokeWidth="0" rx="5" fill={this.fill} 
+                     transform={"rotate(-45," + this.width/2 + "," + this.width/2 + ")"} key={Math.random()}/>)
+
+    }
+
+    return super.render(img)
+  }
+}
+
+// hollow rectangle
+class Logo10 extends VectorLogo {
+
+  render() {
+    let img = []
+    if (this.state.animate) {
+      img.push(<line x1={this.width} y1="0" x2={0} y2={this.height} stroke={this.fill} strokeWidth="80" key={Math.random()}>
+                <animate attributeName="stroke-width" values={"0;40;0"} dur="7s" repeatCount="indefinite" />
+                </line>) 
+    } else {
+      img.push(<line x1={this.width} y1="0" x2={0} y2={this.height} stroke={this.fill} strokeWidth="40" key={Math.random()}/>)  
+    }
+
+    return super.render(img)
+  }
+
+}
+
+// tv screen
+class Logo11 extends VectorLogo {
+
+  render() {
+    let img = []
+    if (this.state.animate) {
+      img.push(<rect x={0} y={0} width={this.width} height={this.width} stroke={this.fill} strokeWidth="0" rx="15" fill={this.fill} key={Math.random()}/>)
+      img.push(<rect x={0} y={0} width={this.width} height={this.width} stroke={this.fill} strokeWidth="0" rx="0" fill={this.background} key={Math.random()}>
+                <animate attributeName="y" values={0 + ";" + this.width + ";" + 0} dur="3s" repeatCount="indefinite" />
+               </rect>)
+      img.push(<rect x={this.width*0.2} y={this.height*0.2} width={this.width*0.6} height={this.width*0.6} rx="5" stroke={this.fill} strokeWidth="0" fill={this.background} key={Math.random()}>
+                <animate attributeName="y" values={this.width + ";" + 0 + ";" + this.width} dur="4s" repeatCount="indefinite" />
+              </rect>)
+
+    } else {
+      img.push(<rect x={0} y={0} width={this.width} height={this.width} stroke={this.fill} strokeWidth="0" rx="15" fill={this.fill} key={Math.random()}/>)
+      img.push(<rect x={this.width*0.2} y={this.height*0.2} width={this.width*0.6} height={this.width*0.6} rx="5" stroke={this.fill} strokeWidth="0" fill={this.background} key={Math.random()}/>)
+    }
+
+    return super.render(img)
+  }
+}
+
 export class LogoFactory extends React.Component {
 
   constructor(props) {
@@ -207,15 +300,19 @@ export class LogoFactory extends React.Component {
   }
 
   getLogo(idx) {
-      switch(idx%8) {
-        case 0: return  <Logo0 width={100} height={100} fill={this.props.fill} idx={idx} animate={this.props.animate}/>;
-        case 1: return  <Logo1 width={100} height={100} fill={this.props.fill} idx={idx} animate={this.props.animate}/>;
+      switch(idx%12) {
+        case 0: return  <Logo6 width={100} height={100} fill={this.props.fill} idx={idx} animate={this.props.animate}/>;
+        case 1: return  <Logo9 width={100} height={100} fill={this.props.fill} idx={idx} animate={this.props.animate}/>;
         case 2: return  <Logo2 width={100} height={100} fill={this.props.fill} idx={idx} animate={this.props.animate}/>;
         case 3: return  <Logo3 width={100} height={100} fill={this.props.fill} idx={idx} animate={this.props.animate}/>;
         case 4: return  <Logo4 width={100} height={100} fill={this.props.fill} idx={idx} animate={this.props.animate}/>;
         case 5: return  <Logo5 width={100} height={100} fill={this.props.fill} idx={idx} animate={this.props.animate}/>;
-        case 6: return  <Logo6 width={100} height={100} fill={this.props.fill} idx={idx} animate={this.props.animate}/>;
+        case 6: return  <Logo0 width={100} height={100} fill={this.props.fill} idx={idx} animate={this.props.animate}/>;
         case 7: return  <Logo7 width={100} height={100} fill={this.props.fill} idx={idx} animate={this.props.animate}/>;
+        case 8: return  <Logo8 width={100} height={100} fill={this.props.fill} idx={idx} animate={this.props.animate}/>;
+        case 9: return  <Logo10 width={100} height={100} fill={this.props.fill} idx={idx} animate={this.props.animate}/>;
+        case 10: return  <Logo1 width={100} height={100} fill={this.props.fill} idx={idx} animate={this.props.animate}/>;
+        case 11: return  <Logo11 width={100} height={100} fill={this.props.fill} idx={idx} animate={this.props.animate}/>;
         default: return <Logo2 width={100} height={100} fill={this.props.fill} idx={idx} animate={this.props.animate}/>;
       }
   } 
