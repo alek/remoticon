@@ -21,7 +21,7 @@ class Demo extends React.Component {
   render() {
     return (
       <div className="Demo">
-        <Timer initialTime={50} startImmediately={true}>
+        <Timer initialTime={1} timeToUpdate={387*8} startImmediately={true}>
           {({ start, resume, pause, stop, reset, timerState }) => (
           <React.Fragment>
           <div className="Animation">
