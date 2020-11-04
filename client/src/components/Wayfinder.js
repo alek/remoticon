@@ -3,7 +3,6 @@ import './Wayfinder.css';
 import LogoFactory from './LogoFactory'
 import About from './About'
 import Demo from './Demo'
-import Test from './Test'
 
 import { connect } from "react-redux";
 import { getCommandsState } from "../redux/selectors";
