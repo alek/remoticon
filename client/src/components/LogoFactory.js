@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 class VectorLogo extends React.Component {
 
   constructor(props) {
@@ -301,19 +300,19 @@ export class LogoFactory extends React.Component {
 
   getLogo(idx) {
       switch(idx%12) {
-        case 0: return  <Logo6 width={100} height={100} fill={this.props.fill} idx={idx} animate={this.props.animate}/>;
-        case 1: return  <Logo9 width={100} height={100} fill={this.props.fill} idx={idx} animate={this.props.animate}/>;
-        case 2: return  <Logo2 width={100} height={100} fill={this.props.fill} idx={idx} animate={this.props.animate}/>;
-        case 3: return  <Logo3 width={100} height={100} fill={this.props.fill} idx={idx} animate={this.props.animate}/>;
-        case 4: return  <Logo4 width={100} height={100} fill={this.props.fill} idx={idx} animate={this.props.animate}/>;
-        case 5: return  <Logo5 width={100} height={100} fill={this.props.fill} idx={idx} animate={this.props.animate}/>;
-        case 6: return  <Logo0 width={100} height={100} fill={this.props.fill} idx={idx} animate={this.props.animate}/>;
-        case 7: return  <Logo7 width={100} height={100} fill={this.props.fill} idx={idx} animate={this.props.animate}/>;
-        case 8: return  <Logo8 width={100} height={100} fill={this.props.fill} idx={idx} animate={this.props.animate}/>;
-        case 9: return  <Logo10 width={100} height={100} fill={this.props.fill} idx={idx} animate={this.props.animate}/>;
-        case 10: return  <Logo1 width={100} height={100} fill={this.props.fill} idx={idx} animate={this.props.animate}/>;
-        case 11: return  <Logo11 width={100} height={100} fill={this.props.fill} idx={idx} animate={this.props.animate}/>;
-        default: return <Logo2 width={100} height={100} fill={this.props.fill} idx={idx} animate={this.props.animate}/>;
+        case 0: return  <Logo6 width={this.props.width} height={this.props.height} fill={this.props.fill} idx={idx} animate={this.props.animate}/>;
+        case 1: return  <Logo9 width={this.props.width} height={this.props.height} fill={this.props.fill} idx={idx} animate={this.props.animate}/>;
+        case 2: return  <Logo2 width={this.props.width} height={this.props.height} fill={this.props.fill} idx={idx} animate={this.props.animate}/>;
+        case 3: return  <Logo3 width={this.props.width} height={this.props.height} fill={this.props.fill} idx={idx} animate={this.props.animate}/>;
+        case 4: return  <Logo4 width={this.props.width} height={this.props.height} fill={this.props.fill} idx={idx} animate={this.props.animate}/>;
+        case 5: return  <Logo5 width={this.props.width} height={this.props.height} fill={this.props.fill} idx={idx} animate={this.props.animate}/>;
+        case 6: return  <Logo0 width={this.props.width} height={this.props.height} fill={this.props.fill} idx={idx} animate={this.props.animate}/>;
+        case 7: return  <Logo7 width={this.props.width} height={this.props.height} fill={this.props.fill} idx={idx} animate={this.props.animate}/>;
+        case 8: return  <Logo8 width={this.props.width} height={this.props.height} fill={this.props.fill} idx={idx} animate={this.props.animate}/>;
+        case 9: return  <Logo10 width={this.props.width} height={this.props.height} fill={this.props.fill} idx={idx} animate={this.props.animate}/>;
+        case 10: return  <Logo1 width={this.props.width} height={this.props.height} fill={this.props.fill} idx={idx} animate={this.props.animate}/>;
+        case 11: return  <Logo11 width={this.props.width} height={this.props.height} fill={this.props.fill} idx={idx} animate={this.props.animate}/>;
+        default: return <Logo2 width={this.props.width} height={this.props.height} fill={this.props.fill} idx={idx} animate={this.props.animate}/>;
       }
   } 
 

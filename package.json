@@ -9,9 +9,11 @@
   "dependencies": {
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
-    "nodemon": "^2.0.5",
     "fixed-size-queue": "^1.0.1",
-    "mqtt": "^4.2.1"
+    "mqtt": "^4.2.1",
+    "nodemon": "^2.0.5",
+    "react-audio-player": "^0.14.0",
+    "react-compound-timer": "^1.2.0"
   },
   "devDependencies": {
     "concurrently": "^5.3.0"

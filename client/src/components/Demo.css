@@ -1,0 +1,11 @@
+.Demo {
+	color: #fff;
+	height: 80vh;
+}
+
+.Demo .Counter {
+	display: flex;
+	margin: auto;
+	align-items: center;
+	font-size: 528px;
+}

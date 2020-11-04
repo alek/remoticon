@@ -2,10 +2,11 @@ import React from 'react';
 import './Wayfinder.css';
 import LogoFactory from './LogoFactory'
 import About from './About'
+import Demo from './Demo'
+import Test from './Test'
 
 import { connect } from "react-redux";
 import { getCommandsState } from "../redux/selectors";
-
 
 // top-level header nav
 class Nav extends React.Component {
@@ -227,7 +228,8 @@ class Wayfinder extends React.Component {
     super(props);
     this.state = {
       active: "Workshops",
-      menu: "live"
+      menu: "live",
+      demo: false
     }
   }
 
@@ -237,8 +239,13 @@ class Wayfinder extends React.Component {
     return (
       <div className="Wayfinder-container">
         <WayfinderHeader onClick={(val) => this.setState({menu: val})}/>
-        <WayfinderNav onClick={(val) => this.setState({active: val})}/>
-        <WayfinderGrid type={this.state.active} />              
+        {!this.state.demo ? 
+          <React.Fragment>
+            <WayfinderNav onClick={(val) => this.setState({active: val})}/>
+            <WayfinderGrid type={this.state.active} />              
+          </React.Fragment>
+        : <Demo />
+        }
         { (this.state.menu === "about") && <About /> }
       </div>
       )
