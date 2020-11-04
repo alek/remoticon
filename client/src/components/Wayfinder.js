@@ -235,16 +235,17 @@ class Wayfinder extends React.Component {
 
   render() {
     // todo: fork behavior based on active command
-    let command = this.props.state.commands
+    let command = this.props.state.commands;
+
     return (
       <div className="Wayfinder-container">
         <WayfinderHeader onClick={(val) => this.setState({menu: val})}/>
-        {!this.state.demo ? 
-          <React.Fragment>
+        {command === "demo" ? 
+        <Demo />
+        : <React.Fragment>
             <WayfinderNav onClick={(val) => this.setState({active: val})}/>
             <WayfinderGrid type={this.state.active} />              
           </React.Fragment>
-        : <Demo />
         }
         { (this.state.menu === "about") && <About /> }
       </div>

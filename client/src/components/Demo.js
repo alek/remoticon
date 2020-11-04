@@ -12,6 +12,10 @@ class Demo extends React.Component {
 
   constructor(props) {
     super(props);
+    this.state = {
+      play: false
+    };
+    this.palette = ["#e9d4c3", "#d2c2ac", "#aa8805", "#99642c", "#d56231"];
   }
 
   render() {
@@ -20,13 +24,20 @@ class Demo extends React.Component {
         <Timer initialTime={50} startImmediately={true}>
           {({ start, resume, pause, stop, reset, timerState }) => (
           <React.Fragment>
-              <div className="Counter">{Math.floor(Math.random()*100)}</div>
-              <LogoFactory type={0} width={400} height={400} fill={"red"} key={Math.random()} animate={true}/>
+          <div className="Animation">
+            {this.state.play && 
+              <LogoFactory type={Math.floor(Math.random()*12)} width={800} height={800} fill={this.palette[Math.floor(this.palette.length*Math.random())]} key={Math.random()} animate={true}/>
+            }
+          </div>
+          <div class="Player">          
               <ReactAudioPlayer
                 src={song}
-                autoPlay
                 controls
+                loop
+                onPlay={() => this.setState({play: true})}
+                onPause={() => this.setState({play: false})}
               />
+          </div>
           </React.Fragment>
         )}
         </Timer>
