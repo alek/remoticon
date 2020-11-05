@@ -30,6 +30,7 @@
 audio {
 	filter: grayscale(1) contrast(85%) invert(100%);
 	height: 40px;
+	z-index: 20;
 }
 
 audio:focus {

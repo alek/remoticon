@@ -121,12 +121,13 @@ class Logo4 extends VectorLogo {
 
   render() {
     let img = []
+    let maxR = this.width/2
     if (this.state.animate) {
       img.push(<circle cx="0" cy={this.width} r={this.height/2} stroke={this.fill} strokeWidth="0" fill={this.fill} key={Math.random()}>
-              <animate attributeName="r" values={"0;50;0"} dur="7s" repeatCount="indefinite" />
+              <animate attributeName="r" values={"0;" + maxR + ";0"} dur="7s" repeatCount="indefinite" />
                 </circle>)
       img.push(<circle cx={this.width/2} cy={this.height/2} r={this.height/2} stroke={this.fill} strokeWidth="0" fill={this.fill} key={Math.random()}>
-              <animate attributeName="r" values={"0;50;0"} dur="5s" repeatCount="indefinite" />
+              <animate attributeName="r" values={"0;" + maxR + ";0"} dur="5s" repeatCount="indefinite" />
                </circle>)
 
     } else {
@@ -145,7 +146,7 @@ class Logo5 extends VectorLogo {
     let img = []
     if (this.state.animate) {
       img.push(<circle cx="0" cy={this.width} r={this.height} stroke={this.fill} strokeWidth="0" fill={this.fill} key={Math.random()}>
-                <animate attributeName="r" values={"50;100;0"} dur="8s" repeatCount="indefinite" />
+                <animate attributeName="r" values={this.width/2 + ";" + this.width + ";0"} dur="8s" repeatCount="indefinite" />
                 </circle>)
       img.push(<circle cx="0" cy={this.width} r={this.height/2} stroke={this.fill} strokeWidth="0" fill={this.background} key={Math.random()}/>)
     } else {
@@ -183,9 +184,10 @@ class Logo7 extends VectorLogo {
 
   render() {
     let img = []
+    let delta = 0.15*this.width;
     for (let i=0; i<20; i++) {
       if (this.state.animate) {
-        img.push(<line x1="0" y1={-this.height/2+i*15} x2={this.width} y2={i*15} stroke={this.fill} strokeWidth="4" opacity="1.0" key={Math.random()}>
+        img.push(<line x1="0" y1={-this.height/2+i*delta} x2={this.width} y2={i*delta} stroke={this.fill} strokeWidth="4" opacity="1.0" key={Math.random()}>
                   <animate attributeName="opacity" values={"0;1;0"} dur={1 + Math.ceil(Math.random()*5) + "s"} repeatCount="indefinite" />
                   </line>)
       } else {
@@ -299,7 +301,7 @@ export class LogoFactory extends React.Component {
   }
 
   getLogo(idx) {
-      switch(idx%12) {
+      switch(idx) {
         case 0: return  <Logo6 width={this.props.width} height={this.props.height} fill={this.props.fill} idx={idx} animate={this.props.animate}/>;
         case 1: return  <Logo9 width={this.props.width} height={this.props.height} fill={this.props.fill} idx={idx} animate={this.props.animate}/>;
         case 2: return  <Logo2 width={this.props.width} height={this.props.height} fill={this.props.fill} idx={idx} animate={this.props.animate}/>;

@@ -3,6 +3,7 @@ import './Wayfinder.css';
 import LogoFactory from './LogoFactory'
 import About from './About'
 import Demo from './Demo'
+import Terminal from './Terminal';
 
 import { connect } from "react-redux";
 import { getCommandsState } from "../redux/selectors";
@@ -52,7 +53,7 @@ class Nav extends React.Component {
 function WayfinderHeader(props) {
   return (
       <div className="Wayfinder-header">
-        <h1>Hackaday <strong>Remoticon 2020</strong></h1>
+        <a href="/"><h1>Hackaday <strong>Remoticon 2020</strong></h1></a>
         <Nav onClick={props.onClick} />
       </div>
     )
@@ -157,7 +158,7 @@ class WayfinderGrid extends React.Component {
                   ["Introduction to Modular Synthesis using VCV Rack", "https://hackaday.io/project/175074-introduction-to-modular-synthesis-using-vcv-rack", 65],
                   ["Prototyping to the Max", "https://hackaday.io/project/175075-remoticon-prototyping-to-the-max", 89],
                   ["PCB Reverse Engineering", "https://hackaday.io/project/175076-remoticon-pcb-reverse-engineering", 174],
-                  ["KiCad to Blender > Photorealistic PCB renders", "https://hackaday.io/project/175076-remoticon-pcb-reverse-engineering", 99],
+                  ["KiCad to Blender > Photorealistic PCB renders", "https://hackaday.io/project/175077-remoticon-kicad-to-blender-pcb-renders", 99],
                   ["Tiny ML", "https://hackaday.io/project/175078-remoticon-tiny-ml", 195],
                   ["Crowd-Controlled Robots", "https://hackaday.io/project/175079-remoticon-crowd-controlled-robots", 166],
                   ["Basics of RF Emissions Debugging", "https://hackaday.io/project/175080-remoticon-basics-of-rf-emissions-debugging", 131],
@@ -195,7 +196,7 @@ class WayfinderGrid extends React.Component {
     for (let i=0; i<rooms.length*2; i++) {
       if (i%2 === 0) {
         frontColor = palette[i/2%palette.length]
-        cells.push(<LogoFactory type={i/2} width={100} height={100} fill={frontColor} key={Math.random()} animate={this.state.animate[i/2]}/>)
+        cells.push(<LogoFactory type={(i/2)%12} width={100} height={100} fill={frontColor} key={Math.random()} animate={this.state.animate[i/2]}/>)
       } else {
         cells.push(<RoomEntry 
                     i={i} 
@@ -239,13 +240,17 @@ class Wayfinder extends React.Component {
       <div className="Wayfinder-container">
         <WayfinderHeader onClick={(val) => this.setState({menu: val})}/>
         {command === "demo" ? 
-        <Demo />
+        <React.Fragment>
+          <Demo />
+        </React.Fragment>
         : <React.Fragment>
             <WayfinderNav onClick={(val) => this.setState({active: val})}/>
             <WayfinderGrid type={this.state.active} />              
+            <Terminal ticker={true}/>
           </React.Fragment>
         }
         { (this.state.menu === "about") && <About /> }
+        
       </div>
       )
   }

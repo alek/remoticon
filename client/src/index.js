@@ -6,7 +6,6 @@ import store from "./redux/store";
 
 import './index.css';
 import Wayfinder from './components/Wayfinder';
-import Terminal from './components/Terminal';
 import * as serviceWorker from './serviceWorker';
 
 
@@ -17,7 +16,6 @@ class App extends React.Component {
 			<Provider store={store}>
 				<React.StrictMode>
 					<Wayfinder />
-					<Terminal />
 			  	</React.StrictMode>
 			  </Provider>
 		)

@@ -29,7 +29,7 @@ class CommandLine extends React.Component {
   render() {
     return (
       <div className="CommandLine">
-      <input type="text" value={this.state.command} placeholder="Have a command for me?" onKeyDown={this.handleKeyDown} onChange={this.onChange} />
+      <input type="text" value={this.state.command} placeholder="Have a command for me? Try 'demo' maybe?" onKeyDown={this.handleKeyDown} onChange={this.onChange} />
       </div>
       )
   }

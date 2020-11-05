@@ -21,7 +21,7 @@ class Terminal extends React.Component {
     if (this.state.message) {
       return this.state.message;
     } else {
-      return "Hackaday Remoticon // November 6 - November 8 2020. Keep an eye on this website for more info. Use MQTT broker.shiftr.io/remoticon to broadcast here."
+      return "Hackaday Remoticon // November 6 - November 8 2020. Use MQTT broker.shiftr.io/remoticon to broadcast here."
     }
   }
 
@@ -36,7 +36,7 @@ class Terminal extends React.Component {
   render() {
     return (
         <div className="Wayfinder-container">
-          <TickerBar getText={() => this.getText()}/>
+          {this.props.ticker && <TickerBar getText={() => this.getText()}/> }
           <CommandLine />
         </div>
       )
