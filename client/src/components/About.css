@@ -32,3 +32,26 @@
 	display: inline-block;
 	font-weight: 500;
 }
+
+.About .Sponsors {
+	margin-top: 30px;
+	width: 70%;
+	margin: auto;
+}
+
+.About .Sponsors h2 {
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	font-size: 12px;
+	color: #fff;
+	margin-bottom: 15px;
+}
+
+.About .SponsorLogos {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.About .SponsorLogos img {
+	height: 75px;
+}
