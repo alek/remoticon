@@ -239,7 +239,7 @@ class Wayfinder extends React.Component {
     return (
       <div className="Wayfinder-container">
         <WayfinderHeader onClick={(val) => this.setState({menu: val})}/>
-        {command != null && String(command).toLowerCase() !== "demo" ? 
+        {command != null && String(command).toLowerCase() === "demo" ? 
         <React.Fragment>
           <Demo />
           <Terminal ticker={true}/>
