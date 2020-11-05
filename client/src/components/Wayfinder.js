@@ -242,6 +242,7 @@ class Wayfinder extends React.Component {
         {command === "demo" ? 
         <React.Fragment>
           <Demo />
+          <Terminal ticker={true}/>
         </React.Fragment>
         : <React.Fragment>
             <WayfinderNav onClick={(val) => this.setState({active: val})}/>
