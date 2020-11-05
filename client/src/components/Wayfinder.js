@@ -180,7 +180,7 @@ class WayfinderGrid extends React.Component {
       } else if (type === "Rooms") {
           return [["Mae Jemison",""], ["Caturday",""], ["Replicant",""], ["Magic Smoke Lounge",""], ["Demo Room",""], ["Mr. Robot",""]]
       } else {
-          return [["Bring A Hack // Friday 4p PST",""]]
+          return [["Bring A Hack // Friday 7PM EST",""]]
       }
   }
 
@@ -239,7 +239,7 @@ class Wayfinder extends React.Component {
     return (
       <div className="Wayfinder-container">
         <WayfinderHeader onClick={(val) => this.setState({menu: val})}/>
-        {command === "demo" ? 
+        {command != null && String(command).toLowerCase() !== "demo" ? 
         <React.Fragment>
           <Demo />
           <Terminal ticker={true}/>

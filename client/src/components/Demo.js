@@ -16,7 +16,7 @@ class Demo extends React.Component {
       play: false
     };
     this.palette = ["#e9d4c3", "#d2c2ac", "#aa8805", "#99642c", "#d56231"];
-    this.sequence = [0,10,5,6,1,1,4,8,2,1,11,7,1,8,5,10,0,3];
+    this.sequence = [0,10,5,6,1,1,4,8,1,12,11,7,1,8,12,5,0,9];
     this.updatePeriod = 3200;
   }
 
