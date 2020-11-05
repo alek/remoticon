@@ -131,8 +131,8 @@ class RoomEntry extends React.Component {
       <a href={this.url}>
       <div key={"cell-" + this.idx} className="RoomName" onMouseEnter={this.onMouseEnter} onMouseLeave={this.onMouseLeave}>
                           <h2 style={{ color: this.fill }}>{this.title}</h2>
-                          <h4>{this.participants} participants</h4>
-                          <RoomOccupancy total={30} active={this.participants*0.5} id={this.idx} color={this.fill}/>
+                          {this.participants && <h4>{this.participants} participants</h4>}
+                          <RoomOccupancy total={30} active={this.participants ? this.participants*0.5 : 150} id={this.idx} color={this.fill}/>
                           </div>
                           </a>
     )
@@ -176,11 +176,11 @@ class WayfinderGrid extends React.Component {
                   ["Circuit Sculpture Workshop", "https://hackaday.io/project/175173-remoticon-circuit-sculpture-workshop", 172],
                   ["The Mechanics of FEA", "https://hackaday.io/project/175174-remoticon-the-mechanics-of-fea", 37]]
       } else if (type === "Keynotes") {
-          return [["Opening Ceremonies",""], ["Keynote Talk 1",""], ["Keynote Talk 2",""], ["Closing Ceremonies",""]]
+          return [["Opening Ceremonies // Nov 7 9AM EST",""], ["Keynote Talk: Alfred Jones // Nov 7 9PM EST",""], ["Hackaday Prize Ceremony // Nov 7 9:45PM EST",""], ["Closing Ceremonies // Nov 8 8PM EST",""]]
       } else if (type === "Rooms") {
           return [["Mae Jemison",""], ["Caturday",""], ["Replicant",""], ["Magic Smoke Lounge",""], ["Demo Room",""], ["Mr. Robot",""]]
       } else {
-          return [["h4x-rc-1",""], ["h4x-rc-2",""], ["h4x-rc-3",""]]
+          return [["Bring A Hack // Friday 4p PST",""]]
       }
   }
 
