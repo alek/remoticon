@@ -318,6 +318,7 @@ class Logo12 extends VectorLogo {
   }
 }
 
+
 export class LogoFactory extends React.Component {
 
   constructor(props) {

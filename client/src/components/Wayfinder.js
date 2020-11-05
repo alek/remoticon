@@ -221,6 +221,29 @@ class WayfinderGrid extends React.Component {
 
 }
 
+class FauxWayfinder extends React.Component {
+
+    render() {
+    let cells = []
+    
+    let palette = ["#e9d4c3", "#d2c2ac", "#aa8805", "#99642c", "#d56231"]
+    
+    for (let i=0; i<42; i++) {
+      let frontColor =  palette[Math.floor(Math.random()*palette.length)]
+      cells.push(<LogoFactory type={i%12} width={100} height={100} fill={frontColor} key={Math.random()} animate={true}/>)
+    }
+
+    return (
+      <div>
+         <div className="Wayfinder-grid">
+          {cells}
+        </div>
+      </div>
+      )
+  }
+
+}
+
 
 class Wayfinder extends React.Component {
 
@@ -246,7 +269,10 @@ class Wayfinder extends React.Component {
         </React.Fragment>
         : <React.Fragment>
             <WayfinderNav onClick={(val) => this.setState({active: val})}/>
-            <WayfinderGrid type={this.state.active} />              
+             {command != null && String(command).toLowerCase() === "mode" ? 
+                <FauxWayfinder />              
+              : <WayfinderGrid type={this.state.active} />              
+              }
             <Terminal ticker={true}/>
           </React.Fragment>
         }
