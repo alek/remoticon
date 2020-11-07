@@ -178,7 +178,7 @@ class WayfinderGrid extends React.Component {
                   ["Circuit Sculpture Workshop", "https://hackaday.io/project/175173-remoticon-circuit-sculpture-workshop", 172],
                   ["The Mechanics of FEA", "https://hackaday.io/project/175174-remoticon-the-mechanics-of-fea", 37]]
       } else if (type === "Keynotes") {
-          return [["Opening Remarks // Nov 7 1:15AM EST",""], ["Keynote Talk: Kipp Bradford // Nov 7 1:30PM EST",""], ["Keynote Talk: Alfred Jones // Nov 7 9:30PM EST",""], ["Hackaday Prize Ceremony // Nov 7 10PM EST",""]]
+          return [["Opening Remarks // Nov 7 1:15PM EST",""], ["Keynote Talk: Kipp Bradford // Nov 7 1:30PM EST",""], ["Keynote Talk: Alfred Jones // Nov 7 9:30PM EST",""], ["Hackaday Prize Ceremony // Nov 7 10PM EST",""]]
       } else if (type === "Rooms") {
           return [["Mae Jemison",""], ["Caturday",""], ["Replicant",""], ["Magic Smoke Lounge",""], ["Demo Room",""], ["Mr. Robot",""]]
       } else {
