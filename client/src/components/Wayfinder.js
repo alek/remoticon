@@ -8,6 +8,8 @@ import Terminal from './Terminal';
 import { connect } from "react-redux";
 import { getCommandsState } from "../redux/selectors";
 
+import Wave from './Wave'
+
 // top-level header nav
 class Nav extends React.Component {
 
