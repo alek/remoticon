@@ -19,7 +19,7 @@ class Nav extends React.Component {
     this.links = {
       "live": "#",
       "about": "#",
-      "tickets": "https://www.eventbrite.com/e/remoticon-tickets-115886905855"
+      "tickets": "https://www.eventbrite.com/x/remoticon-tickets-115886905855"
     }
     this.state = {
       selected: "live"
@@ -178,7 +178,7 @@ class WayfinderGrid extends React.Component {
                   ["Circuit Sculpture Workshop", "https://hackaday.io/project/175173-remoticon-circuit-sculpture-workshop", 172],
                   ["The Mechanics of FEA", "https://hackaday.io/project/175174-remoticon-the-mechanics-of-fea", 37]]
       } else if (type === "Keynotes") {
-          return [["Opening Ceremonies // Nov 7 9AM EST",""], ["Keynote Talk: Alfred Jones // Nov 7 9PM EST",""], ["Hackaday Prize Ceremony // Nov 7 9:45PM EST",""], ["Closing Ceremonies // Nov 8 8PM EST",""]]
+          return [["Opening Remarks // Nov 7 1:15AM EST",""], ["Keynote Talk: Kipp Bradford // Nov 7 1:30PM EST",""], ["Keynote Talk: Alfred Jones // Nov 7 9:30PM EST",""], ["Hackaday Prize Ceremony // Nov 7 10PM EST",""]]
       } else if (type === "Rooms") {
           return [["Mae Jemison",""], ["Caturday",""], ["Replicant",""], ["Magic Smoke Lounge",""], ["Demo Room",""], ["Mr. Robot",""]]
       } else {
